@@ -35,7 +35,7 @@
                             style="width:100%;margin-left: 0px;margin-bottom: 15px"
                         >重置</el-button>
                         <el-button
-                            @click="backToSignIn('ruleForm')"
+                            @click="backToSignIn()"
                             style="width:100%;margin-left: 0px;"
                         >已有帐号？登录</el-button>
                     </el-form-item>
@@ -100,7 +100,7 @@ export default {
         resetForm(formName) {
             this.$refs[formName].resetFields();
         },
-        backToSignIn(formName) {
+        backToSignIn() {
             this.$router.push("/login");
         }
     }

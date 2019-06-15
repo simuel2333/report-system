@@ -1,13 +1,19 @@
 <template>
-    <div class="container">home</div>
+    <div class="container">{{count}}</div>
+    
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
     data() {
         return {};
     },
-    components: {}
+    components: {},
+    computed: {
+        ...mapState['count']
+    }
 };
 </script>
 

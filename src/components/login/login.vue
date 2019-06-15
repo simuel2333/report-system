@@ -32,14 +32,14 @@
                             style="width:100%;margin-left: 0px;margin-bottom: 15px"
                         >重置</el-button>
                         <el-button
-                            @click="signUp('ruleForm')"
+                            @click="signUp()"
                             style="width:100%;margin-left: 0px;"
                         >注册</el-button>
                     </el-form-item>
                 </el-form>
             </div>
         </div>
-        <footer class="footer"></footer>
+        <footer class="footer"></footer> 
     </div>
 </template>
 
@@ -86,7 +86,7 @@ export default {
         resetForm(formName) {
             this.$refs[formName].resetFields();
         },
-        signUp(formName) {
+        signUp() {
             this.$router.push('/signUp')
         }
     }
