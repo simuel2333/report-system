@@ -31,24 +31,28 @@
                             @click="resetForm('ruleForm')"
                             style="width:100%;margin-left: 0px;margin-bottom: 15px"
                         >重置</el-button>
-                        <el-button
-                            @click="signUp()"
-                            style="width:100%;margin-left: 0px;"
-                        >注册</el-button>
+                        <el-button @click="signUp()" style="width:100%;margin-left: 0px;">注册</el-button>
                     </el-form-item>
                 </el-form>
             </div>
         </div>
-        <footer class="footer"></footer> 
+        <footer class="footer"></footer>
     </div>
 </template>
 
 <script>
 export default {
     data() {
+        /**
+         * mockdata
+         * admin 123456
+         * user 123456
+         */
         var checkAccount = (rule, value, callback) => {
             if (!value) {
                 return callback(new Error("账户不能为空"));
+            } else {
+                callback();
             }
         };
         var validatePass = (rule, value, callback) => {
@@ -75,9 +79,17 @@ export default {
     },
     methods: {
         submitForm(formName) {
-            this.$refs[formName].validate(valid => {
+            this.$refs[formName].validate((valid, ruleForm) => {
                 if (valid) {
-                    alert("submit!");
+                    let account = this.$refs[formName].model.account;
+                    let pass = this.$refs[formName].model.pass;
+                    if (account === "admin" && pass === "123456") {
+                        this.$router.push("/");
+                    } else if (account === "user" && pass === "123456") {
+                        this.$router.push("/");
+                    } else {
+                        alert("账户密码错误");
+                    }
                 } else {
                     return false;
                 }
@@ -87,7 +99,7 @@ export default {
             this.$refs[formName].resetFields();
         },
         signUp() {
-            this.$router.push('/signUp')
+            this.$router.push("/signUp");
         }
     }
 };

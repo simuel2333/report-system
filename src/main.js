@@ -6,8 +6,12 @@ import store from './store'
 
 Vue.config.productionTip = false
 
+router.beforeEach((to, from, next) => {
+    next()
+})
+
 new Vue({
-  render: h => h(App),
-  store,
-  router
+    render: h => h(App),
+    store,
+    router
 }).$mount('#app')

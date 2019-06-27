@@ -25,15 +25,23 @@ export default new Router({
             name: "signUp",
             component: signUp,
         },
-        {
-            path: "/p1",
-            name: "p1",
-            component: p1,
-        },
-        {
-            path: "/p2",
-            name: "p2",
-            component: p2,
-        }
     ],
 })
+
+//异步挂载的路由
+//动态需要根据权限加载的路由表 
+export const asyncRouterMap = [
+    {
+        path: '/p1',
+        component: p1,
+        name: '权限测试',
+        meta: { role: ['admin'] }, //页面需要的权限
+    },
+    {
+        path: '/p2',
+        component: p2,
+        name: '权限测试',
+        meta: { role: ['normal_user'] }, //页面需要的权限
+    },
+    { path: '*', redirect: '/404', hidden: true }
+];
