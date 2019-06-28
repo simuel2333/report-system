@@ -117,6 +117,6 @@ export default {
 }
 .login-container {
     width: 400px;
-    -webkit-transform: translateX(-60%) translateY(-50%);
+    transform: translateX(-60%) translateY(-50%);
 }
 </style>

@@ -20,7 +20,7 @@ export default {
 <style>
 @import url(../../css/public.css);
 .img-container {
-    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
     cursor: pointer;
 }
 </style>
