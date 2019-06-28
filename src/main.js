@@ -7,6 +7,8 @@ import store from './store'
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
+    var log = console
+    log.log(router)
     next()
 })
 

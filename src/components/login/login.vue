@@ -79,7 +79,7 @@ export default {
     },
     methods: {
         submitForm(formName) {
-            this.$refs[formName].validate((valid, ruleForm) => {
+            this.$refs[formName].validate(valid => {
                 if (valid) {
                     let account = this.$refs[formName].model.account;
                     let pass = this.$refs[formName].model.pass;

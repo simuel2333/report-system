@@ -5,6 +5,7 @@ import login from "../components/login/login.vue"
 import signUp from "../components/login/signUp.vue"
 import p1 from "../components/permissionTest/p1.vue"
 import p2 from "../components/permissionTest/p2.vue"
+import error from "../components/error/404.vue"
 import "../css/reset.css"
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
             name: "signUp",
             component: signUp,
         },
+        {
+            path: "*",
+            name: "404",
+            component: error,
+        }
     ],
 })
 
