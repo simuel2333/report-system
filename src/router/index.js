@@ -6,6 +6,9 @@ import signUp from "../components/login/signUp.vue"
 import p1 from "../components/permissionTest/p1.vue"
 import p2 from "../components/permissionTest/p2.vue"
 import error from "../components/error/404.vue"
+import analyst from "../components/analyst/analystmain.vue"
+import analysthelp from "../components/analyst/help.vue"
+import analystdata from "../components/analyst/analystdata.vue"
 import "../css/reset.css"
 Vue.use(Router)
 
@@ -15,6 +18,7 @@ export default new Router({
             path: "/",
             name: "home",
             component: Home,
+
         },
         {
             path: "/login",
@@ -25,6 +29,21 @@ export default new Router({
             path: "/signUp",
             name: "signUp",
             component: signUp,
+        },
+        {
+            path: "/analyst",
+            name: "analyst",
+            component: analyst,
+            children:[
+                {
+                    path: "/",
+                    component: analysthelp,
+                },
+                {
+                    path: "data",
+                    component: analystdata,
+                }
+            ]
         },
         {
             path: "*",
