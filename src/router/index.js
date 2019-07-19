@@ -9,29 +9,31 @@ import error from "../components/error/404.vue"
 import "../css/reset.css"
 Vue.use(Router)
 
+export const constantRouterMap = [
+    {
+        path: "/",
+        name: "home",
+        component: Home,
+    },
+    {
+        path: "/login",
+        name: "login",
+        component: login,
+    },
+    {
+        path: "/signUp",
+        name: "signUp",
+        component: signUp,
+    },
+    {
+        path: "*",
+        name: "404",
+        component: error,
+    }
+]
+
 export default new Router({
-    routes: [
-        {
-            path: "/",
-            name: "home",
-            component: Home,
-        },
-        {
-            path: "/login",
-            name: "login",
-            component: login,
-        },
-        {
-            path: "/signUp",
-            name: "signUp",
-            component: signUp,
-        },
-        {
-            path: "*",
-            name: "404",
-            component: error,
-        }
-    ],
+    routes: constantRouterMap
 })
 
 //异步挂载的路由
