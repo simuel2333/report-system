@@ -106,6 +106,10 @@ export default {
 </script>
 
 <style scoped>
+.container {
+    align-items: center;
+    justify-content: space-between;
+}
 @import url(../../css/public.css);
 .caption {
     margin-bottom: 1em;
