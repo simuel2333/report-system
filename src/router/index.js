@@ -9,6 +9,14 @@ import error from "../components/error/404.vue"
 import analyst from "../components/analyst/analystmain.vue"
 import analysthelp from "../components/analyst/help.vue"
 import analystdata from "../components/analyst/analystdata.vue"
+import predictdata from "../components/analyst/predictdata.vue"
+import modelTraining from "../components/analyst/modelTraining.vue"
+import trainingOutcome from "../components/analyst/trainingOutcome.vue"
+import investForecast from "../components/analyst/investForecast.vue"
+import forecastModel from "../components/analyst/forecastModel.vue"
+import myRatingForecast from "../components/analyst/myRatingForecast.vue"
+import emotionModelTraining from "../components/analyst/emotionModelTraining.vue"
+import emotionForest from "../components/analyst/emotionForest.vue"
 import "../css/reset.css"
 Vue.use(Router)
 
@@ -41,6 +49,38 @@ export const constantRouterMap = [
             {
                 path: "data",
                 component: analystdata,
+            },
+            {
+                path: "predictdata",
+                component: predictdata,
+            },
+            {
+                path: "modelTraining",
+                component: modelTraining,
+            },
+            {
+                path: "trainingOutcome",
+                component: trainingOutcome,
+            },
+            {
+                path: "investForecast",
+                component: investForecast,
+            },
+            {
+                path: "forecastModel",
+                component: forecastModel,
+            },
+            {
+                path: "myRatingForecast",
+                component: myRatingForecast,
+            },
+            {
+                path: "emotionModelTraining",
+                component: emotionModelTraining,
+            },
+            {
+                path: "emotionForest",
+                component: emotionForest,
             }
         ]
     },
