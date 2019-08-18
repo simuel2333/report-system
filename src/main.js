@@ -3,7 +3,12 @@ import App from './App.vue'
 import router from "./router/index.js"
 import './plugins/element.js'
 import store from './store'
-
+import VCharts from 'v-charts'
+Vue.use(VCharts)
+import axios from 'axios';
+import VueAxios from 'vue-axios'
+axios.defaults.withCredentials = true;
+Vue.use(VueAxios,axios);
 
 
 Vue.config.productionTip = false

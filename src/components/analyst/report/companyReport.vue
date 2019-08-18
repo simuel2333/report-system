@@ -1,18 +1,31 @@
 <template>
     <div class="container">
-        <div class="search">
-            <el-input v-model="search" style="width:200px;" placeholder="请输入内容"></el-input>
-            <el-button type="primary" icon="el-icon-search" @click="searchFilter()">搜索</el-button>
-        </div>
-        
         <el-table
-            :data="tableData.slice(start,end)"
+            :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase())).slice(start,end)"
             style="margin:auto;width:90%"
             :row-class-name="tableRowClassName"
         >
-            <el-table-column prop="name" label="公司"></el-table-column>
-            <el-table-column prop="date" label="预测时间段"></el-table-column>
-            <el-table-column prop="acc" label="模型正确率" sortable></el-table-column>
+            <el-table-column prop="no" label="股票代码"></el-table-column>
+            <el-table-column prop="name" label="股票名称"></el-table-column>
+            <el-table-column prop="date" label="日期"></el-table-column>
+            <el-table-column align="center">
+                <template slot="header" slot-scope="scope">
+                    <el-input v-model="search" placeholder="输入股票名称搜索" clearable />
+                    {{scope.row}}
+                </template>
+                <template slot-scope="scope">
+                    <el-button
+                        size="mini"
+                        type="success"
+                        @click="handleEdit(scope.$index, scope.row)"
+                    >查看</el-button>
+                    <el-button
+                        size="mini"
+                        type="primary"
+                        @click="handleDelete(scope.$index, scope.row)"
+                    >运行</el-button>
+                </template>
+            </el-table-column>
         </el-table>
         <el-pagination
             style="text-align:right;width:90%;margin-top:20px"
@@ -42,22 +55,23 @@ export default {
         },
         handleCurrentChange(val) {
             this.currentPage = val;
-        },
-        searchFilter() {
-            this.tableData = this.tableData.filter(data => !this.search || data.name.toLowerCase().includes(this.search.toLowerCase()))
-        },
+        }
     },
     data() {
         const item1 = {
+            no: 601398,
             name: "工商银行",
             date: "2019.3.1~2019.9.30",
-            acc: 1,
+            calc: "",
+            view: ""
         };
 
         const item2 = {
+            no: 600519,
             name: "贵州茅台",
             date: "2019.1.1~2019.6.30",
-            acc: 2,
+            calc: "",
+            view: ""
         };
         let mockArray = Array(10).fill(item1);
         mockArray = mockArray.concat(Array(10).fill(item2));
@@ -85,10 +99,6 @@ export default {
 }
 .el-table .warning-row {
     background: oldlace;
-    text-align: center;
-}
-.search {
-    width: 100%;
     text-align: center;
 }
 </style>

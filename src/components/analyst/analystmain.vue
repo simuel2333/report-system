@@ -1,6 +1,6 @@
 <template>
-    <el-container style="border: 1px solid #eee;height:calc(85vh);margin-top: 30px;">
-        <el-aside width="284px" style="background-color: rgb(238, 241, 246)">
+    <el-container style="border: 1px solid #eee;height:calc(90vh);margin-top: 30px;">
+        <el-aside width="270px" style="background-color: rgb(238, 241, 246)">
             <el-menu>
                 <el-menu-item index="1">
                     <i class="el-icon-s-data"></i>
@@ -8,20 +8,10 @@
                 </el-menu-item>
                 <el-submenu index="2">
                     <template slot="title">
-                        <i class="el-icon-document"></i>查看报告
+                        <i class="el-icon-document"></i>源数据管理
                     </template>
-                    <el-menu-item-group>
-                        <template slot="title">分组一</template>
-                        <el-menu-item index="2-1">选项1</el-menu-item>
-                        <el-menu-item index="2-2">选项2</el-menu-item>
-                    </el-menu-item-group>
-                    <el-menu-item-group title="分组2">
-                        <el-menu-item index="2-3">选项3</el-menu-item>
-                    </el-menu-item-group>
-                    <el-submenu index="2-4">
-                        <template slot="title">选项4</template>
-                        <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-                    </el-submenu>
+                    <el-menu-item index="2-1" @click="forecastModel()">源数据查看</el-menu-item>
+                    <el-menu-item index="2-2" @click="uploadsourcedata()">源数据上传</el-menu-item>
                 </el-submenu>
                 <el-submenu index="3">
                     <template slot="title">
@@ -34,23 +24,44 @@
                         <el-menu-item index="3-2-2" @click="TrainingOutcome()">训练结果</el-menu-item>
                     </el-submenu>
                     <el-menu-item index="3-3" @click="investForecast()">投资评级预测</el-menu-item>
-                    <el-menu-item index="3-4" @click="forecastModel()">我的评级预测模型</el-menu-item>
-                    <el-menu-item index="3-5" @click="myRatingForecast()">我的评级预测</el-menu-item>
+                    
                 </el-submenu>
                 <el-submenu index="4">
                     <template slot="title">
                         <i class="el-icon-orange"></i>情感分析
                     </template>
                         <el-menu-item index="4-1" @click="emotionModelTraining()">情感模型训练</el-menu-item>
-                        <el-menu-item index="4-2" @click="emotionForest()">情感预测</el-menu-item>
+                        <el-menu-item index="4-1" @click="emotionModelTraining()">投资者每日情感文件</el-menu-item>
+                        <el-menu-item index="4-2" @click="emotionForest()">投资者每日情感指标</el-menu-item>
                 </el-submenu>
                 <el-submenu index="5">
                     <template slot="title">
-                        <i class="el-icon-setting"></i>报告生成
+                        <i class="el-icon-setting"></i>报告生成模块
                     </template>
-                    <el-menu-item index="5-1" @click="genReport()">投资评级预测</el-menu-item>
-                    <el-menu-item index="5-2" @click="forecastModel()">我的评级预测模型</el-menu-item>
-                    <el-menu-item index="5-3" @click="myRatingForecast()">我的评级预测</el-menu-item>
+                    <el-menu-item index="5-1" @click="genReport()">生成报告</el-menu-item>
+                    <el-menu-item index="5-2" @click="companyReport()">企业基本信息报告</el-menu-item>
+                    <el-menu-item index="5-3" @click="ratingReport()">评级研究报告</el-menu-item>
+                </el-submenu>
+                <el-submenu index="6">
+                    <template slot="title">
+                        <i class="el-icon-user"></i>个人中心
+                    </template>
+                    <el-menu-item index="6-1" @click="forecastModel()">我的评级预测模型</el-menu-item>
+                    <el-menu-item index="6-2" @click="myRatingForecast()">我的评级预测</el-menu-item>
+                    <el-submenu index="3-2">
+                        <template slot="title">我的情感分析</template>
+                        <el-menu-item index="3-2-1" @click="viewModelTraining()">分析模型</el-menu-item>
+                        <el-menu-item index="3-2-2" @click="emotionIndex()">每日情感指标</el-menu-item>
+                        <el-menu-item index="3-2-2" @click="TrainingOutcome()">情感变化曲线</el-menu-item>
+                    </el-submenu>
+                </el-submenu>
+                <el-submenu index="7">
+                    <template slot="title">
+                        <i class="el-icon-user"></i>报告审核模块
+                    </template>
+                    <el-menu-item index="6-1" @click="forecastModel()">报告查看</el-menu-item>
+                    <el-menu-item index="6-2" @click="reportCheck()">报告审核</el-menu-item>
+                    <el-menu-item index="6-2" @click="myRatingForecast()">报告发布</el-menu-item>
                 </el-submenu>
             </el-menu>
         </el-aside>
@@ -92,6 +103,24 @@ export default {
         },
         emotionForest() {
             this.$router.push("/analyst/emotionForest");
+        },
+        genReport() {
+            this.$router.push("/analyst/genReport");
+        },
+        companyReport() {
+            this.$router.push("/analyst/companyReport");
+        },
+        ratingReport() {
+            this.$router.push("/analyst/ratingReport");
+        },
+        uploadsourcedata() {
+            this.$router.push("/analyst/uploadsourcedata");
+        },
+        reportCheck(){
+            this.$router.push("/analyst/reportCheck");
+        },
+        emotionIndex(){
+            this.$router.push("/analyst/emotionIndex");
         }
     }
 };

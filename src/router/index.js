@@ -17,6 +17,11 @@ import forecastModel from "../components/analyst/forecastModel.vue"
 import myRatingForecast from "../components/analyst/myRatingForecast.vue"
 import emotionModelTraining from "../components/analyst/emotionModelTraining.vue"
 import emotionForest from "../components/analyst/emotionForest.vue"
+import sourcedatamanage from "../components/analyst/source/sourcedatamanage.vue"
+import uploadsourcedata from "../components/analyst/source/uploadsourcedata.vue"
+import ratingReport from "../components/analyst/report/ratingReport.vue"
+import reportCheck from "../components/analyst/reportCheck.vue"
+import emotionIndex from "../components/analyst/emotionIndex.vue"
 import "../css/reset.css"
 Vue.use(Router)
 
@@ -81,6 +86,31 @@ export const constantRouterMap = [
             {
                 path: "emotionForest",
                 component: emotionForest,
+            },
+            {
+                path: "sourcedatamanage",
+                name:"源数据管理",
+                component: sourcedatamanage,
+            },
+            {
+                path: "uploadsourcedata",
+                name:"源数据上传",
+                component: uploadsourcedata,
+            },
+            {
+                path: "ratingReport",
+                name:"评级研究报告",
+                component: ratingReport,
+            },
+            {
+                path: "reportCheck",
+                name:"报告审核",
+                component: reportCheck,
+            },
+            {
+                path: "emotionIndex",
+                name:"报告审核",
+                component: emotionIndex,
             }
         ]
     },

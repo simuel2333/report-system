@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header class="Header">
-      研报系统(分析师)
+      证券公司研报辅助系统
       <div class="head-portrait">
         <el-dropdown>
           <span class="el-icon-user-solid">
@@ -18,7 +18,6 @@
       </div>
     </header>
     <router-view />
-    <footer class="footer">@西安交通大学</footer>
   </div>
 </template>
 

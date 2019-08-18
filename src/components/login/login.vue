@@ -83,13 +83,16 @@ export default {
                 if (valid) {
                     let account = this.$refs[formName].model.account;
                     let pass = this.$refs[formName].model.pass;
-                    if (account === "admin" && pass === "123456") {
-                        this.$router.push("/");
-                    } else if (account === "user" && pass === "123456") {
-                        this.$router.push("/");
-                    } else {
-                        alert("账户密码错误");
-                    }
+                    let router = this.$router;
+                    this.axios.post('http://115.154.242.164:8000/login/',{username:account,password:pass})
+                    .then(function(response) {
+                        document.cookie = "csrftoken="+response.data.token
+                        router.push("/analyst");
+                    })
+                    .catch(function(){
+                        
+                    });
+
                 } else {
                     return false;
                 }
