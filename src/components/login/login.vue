@@ -84,7 +84,7 @@ export default {
                     let account = this.$refs[formName].model.account;
                     let pass = this.$refs[formName].model.pass;
                     let router = this.$router;
-                    this.axios.post('http://115.154.242.164:8000/login/',{username:account,password:pass})
+                    this.axios.post(this.GLOBAL.ipAndPort+'/login/',{username:account,password:pass})
                     .then(function(response) {
                         document.cookie = "csrftoken="+response.data.token
                         router.push("/analyst");

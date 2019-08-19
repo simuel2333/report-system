@@ -19,7 +19,7 @@
 export default {
     data() {
         this.axios
-            .get("http://115.154.242.164:8000/day_senti/")
+            .get(this.GLOBAL.ipAndPort+"/day_senti/")
             .then(response => {
                 let data = response.data.slice(2061, 2068);
                 for (let i = 0; i < data.length; i++) {

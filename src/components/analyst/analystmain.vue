@@ -46,23 +46,28 @@
                     <template slot="title">
                         <i class="el-icon-user"></i>个人中心
                     </template>
-                    <el-menu-item index="6-1" @click="forecastModel()">我的评级预测模型</el-menu-item>
+                    <el-menu-item index="6-1" @click="forecastModel()">个人信息</el-menu-item>
                     <el-menu-item index="6-2" @click="myRatingForecast()">我的评级预测</el-menu-item>
-                    <el-submenu index="3-2">
+                    <el-submenu index="6-2">
                         <template slot="title">我的情感分析</template>
-                        <el-menu-item index="3-2-1" @click="viewModelTraining()">分析模型</el-menu-item>
-                        <el-menu-item index="3-2-2" @click="emotionIndex()">每日情感指标</el-menu-item>
-                        <el-menu-item index="3-2-2" @click="TrainingOutcome()">情感变化曲线</el-menu-item>
+                        <el-menu-item index="6-2-1" @click="viewModelTraining()">分析模型</el-menu-item>
+                        <el-menu-item index="6-2-2" @click="emotionIndex()">每日情感指标</el-menu-item>
+                        <el-menu-item index="6-2-3" @click="TrainingOutcome()">情感变化曲线</el-menu-item>
                     </el-submenu>
+                    <el-menu-item index="6-4" @click="myRatingForecast()">我的报告</el-menu-item>
                 </el-submenu>
-                <el-submenu index="7">
+                <!-- <el-submenu index="7">
                     <template slot="title">
                         <i class="el-icon-user"></i>报告审核模块
                     </template>
-                    <el-menu-item index="6-1" @click="forecastModel()">报告查看</el-menu-item>
-                    <el-menu-item index="6-2" @click="reportCheck()">报告审核</el-menu-item>
-                    <el-menu-item index="6-2" @click="myRatingForecast()">报告发布</el-menu-item>
-                </el-submenu>
+                    <el-submenu index="7-1">
+                        <template slot="title">报告查看</template>
+                        <el-menu-item index="7-1-1" @click="viewModelTraining()">未审核报告</el-menu-item>
+                        <el-menu-item index="7-1-2" @click="emotionIndex()">已审核报告</el-menu-item>
+                    </el-submenu>
+                    <el-menu-item index="7-2" @click="reportCheck()">报告审核</el-menu-item>
+                    <el-menu-item index="7-3" @click="myRatingForecast()">报告发布</el-menu-item>
+                </el-submenu> -->
             </el-menu>
         </el-aside>
         <el-container>

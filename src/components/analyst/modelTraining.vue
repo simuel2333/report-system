@@ -5,15 +5,9 @@
             <span style="margin-left:140px;">股票代码：</span>
             <el-cascader v-model="value" :options="options" @change="handleChange"></el-cascader>
         </div>
-        <div class="block">
-            请选择日期范围:
-            <el-date-picker
-                v-model="value1"
-                type="daterange"
-                range-separator="至"
-                start-placeholder="开始日期"
-                end-placeholder="结束日期"
-            ></el-date-picker>
+        <div style="margin-bottom:20px">
+            <span style="margin-left:90px;">请选择日期范围：</span>
+            <el-cascader v-model="value1" :options="options1" @change="handleChange"></el-cascader>
         </div>
         <div style="margin-left:200px">
             <el-progress :percentage="20"></el-progress>
@@ -31,8 +25,9 @@
 export default {
     data() {
         return {
-            value1: [new Date(2018, 9, 1), new Date(2018, 9, 30)],
+            value1: [],
             value:[],
+
             options:[
                 {
                     value:"浦发银行 (600000)",
@@ -56,9 +51,32 @@ export default {
                     value:"中国中铁 (601390)",
                     label:"中国中铁 (601390)"
                 }
+            ],
+            options1:[
+                {
+                    value:"周",
+                    label:"周"
+                },{
+                    value:"月",
+                    label:"月"
+                },{
+                    value:"季度",
+                    label:"季度"
+                },{
+                    value:"半年",
+                    label:"半年"
+                },{
+                    value:"1年",
+                    label:"1年"
+                },{
+                    value:"2年",
+                    label:"2年"
+                }
             ]
         };
     },
-    methods: {}
+    methods: {
+        handleChange(){}
+    }
 };
 </script>

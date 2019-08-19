@@ -1,33 +1,30 @@
 <template>
     <div class="container">
         <h2 style="text-align:center">股票数据上传</h2>
-        <el-upload
-            class="upload-demo"
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :on-preview="handlePreview"
-            :on-remove="handleRemove"
-            :before-remove="beforeRemove"
-            multiple
-            :limit="3"
-            :on-exceed="handleExceed"
-            :file-list="fileList"
-            round
-        >
-            <el-button size="small" type="primary" round>点击上传</el-button>
-            <div slot="tip" class="el-upload__tip">只能上传csv文件</div>
-            <el-button size="small" type="success" round>爬虫抓取</el-button>
-        </el-upload>
+
         <div style="margin-bottom:20px">
             <span style="margin-left:70px;">数据源类型：</span>
             <el-cascader v-model="value" :options="options" @change="handleChange"></el-cascader>
         </div>
         <div style="margin-bottom:20px">
             <span style="margin-left:86px;">股票代码：</span>
-            <el-cascader v-model="value1" :options="options" @change="handleChange"></el-cascader>
+            <el-cascader v-model="value1" :options="options1" @change="handleChange"></el-cascader>
         </div>
-        <div style="margin-bottom:20px">
-            <span style="margin-left:20px;">数据集(file、手动)：</span>
-            <el-cascader v-model="value2" :options="options" @change="handleChange"></el-cascader>
+        <div style="display:inline,width:200px;margin-left:100px">
+            <el-upload
+                class="upload-demo"
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :before-remove="beforeRemove"
+                multiple
+                :limit="3"
+                :on-exceed="handleExceed"
+                round
+            >
+                数据集：<el-cascader v-model="value1" :options="options2" @change="handleChange"></el-cascader>
+            </el-upload>
+            <el-button size="small" style="" type="primary">上传</el-button>
         </div>
     </div>
 </template>
@@ -38,15 +35,16 @@ export default {
         return {
             fileList: [
                 {
-                    name: "601318_QUOTATION.csv",
+                    name: "601318_QUOTATION.csv"
                 },
                 {
-                    name: "601318_FINANCE.csv",
-
+                    name: "601318_FINANCE.csv"
                 }
             ],
 
             value: [],
+            value1:[],
+            value2:[],
             options: [
                 {
                     value: "QUOTATION",
@@ -92,6 +90,36 @@ export default {
                     value: "BASIC",
                     label: "公司基本信息"
                 }
+            ],
+            options1:[
+                {
+                    value:"浦发银行 (600000)",
+                    label:"浦发银行 (600000)"
+                },{
+                    value:"民生银行 (600016)",
+                    label:"民生银行 (600016)"
+                },{
+                    value:"宝钢股份 (600019)",
+                    label:"宝钢股份 (600019)"
+                },{
+                    value:"中国石化 (600028)",
+                    label:"中国石化 (600028)"
+                },{
+                    value:"上汽集团 (600104)",
+                    label:"上汽集团 (600104)"
+                },{
+                    value:"中国平安 (601318)",
+                    label:"中国平安 (601318)"
+                },{
+                    value:"中国中铁 (601390)",
+                    label:"中国中铁 (601390)"
+                }
+            ],
+            options2:[
+                {
+                    value:"中国平安 (601318)",
+                    label:"中国平安601318.csv"
+                }
             ]
         };
     },
@@ -109,8 +137,10 @@ export default {
                 } 个文件，共选择了 ${files.length + fileList.length} 个文件`
             );
         },
-        beforeRemove(file, fileList) {
-            return this.$confirm(`确定移除 ${file.name}？`);
+        beforeRemove() {
+        },
+        handleChange(){
+
         }
     }
 };
@@ -121,7 +151,6 @@ export default {
     width: 100%;
 }
 .upload-demo {
-    margin-left: 50px;
-    margin-bottom: 20px;
+    display: inline;
 }
 </style>

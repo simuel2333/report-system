@@ -9,7 +9,8 @@ import axios from 'axios';
 import VueAxios from 'vue-axios'
 axios.defaults.withCredentials = true;
 Vue.use(VueAxios,axios);
-
+import _global from "./Global.vue"
+Vue.prototype.GLOBAL=_global
 
 Vue.config.productionTip = false
 
