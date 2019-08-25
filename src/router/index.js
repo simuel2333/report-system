@@ -22,6 +22,7 @@ import uploadsourcedata from "../components/analyst/source/uploadsourcedata.vue"
 import ratingReport from "../components/analyst/report/ratingReport.vue"
 import reportCheck from "../components/analyst/reportCheck.vue"
 import emotionIndex from "../components/analyst/emotionIndex.vue"
+import investOutcome from "../components/analyst/investOutcome.vue"
 import "../css/reset.css"
 Vue.use(Router)
 
@@ -111,6 +112,11 @@ export const constantRouterMap = [
                 path: "emotionIndex",
                 name:"报告审核",
                 component: emotionIndex,
+            },
+            {
+                path: "investOutcome",
+                name:"投资评级结果",
+                component: investOutcome,
             }
         ]
     },

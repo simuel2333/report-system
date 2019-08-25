@@ -1,6 +1,6 @@
 <template>
     <el-container style="border: 1px solid #eee;height:calc(90vh);margin-top: 30px;">
-        <el-aside width="270px" style="background-color: rgb(238, 241, 246)">
+        <el-aside  width="270px" style="background-color: rgb(238, 241, 246);font-size:23px">
             <el-menu>
                 <el-menu-item index="1">
                     <i class="el-icon-s-data"></i>
@@ -24,7 +24,7 @@
                         <el-menu-item index="3-2-2" @click="TrainingOutcome()">训练结果</el-menu-item>
                     </el-submenu>
                     <el-menu-item index="3-3" @click="investForecast()">投资评级预测</el-menu-item>
-                    
+                    <el-menu-item index="3-4" @click="investOutcome()">投资评级结果</el-menu-item>
                 </el-submenu>
                 <el-submenu index="4">
                     <template slot="title">
@@ -56,7 +56,7 @@
                     </el-submenu>
                     <el-menu-item index="6-4" @click="myRatingForecast()">我的报告</el-menu-item>
                 </el-submenu>
-                <!-- <el-submenu index="7">
+                <el-submenu index="7">
                     <template slot="title">
                         <i class="el-icon-user"></i>报告审核模块
                     </template>
@@ -67,7 +67,7 @@
                     </el-submenu>
                     <el-menu-item index="7-2" @click="reportCheck()">报告审核</el-menu-item>
                     <el-menu-item index="7-3" @click="myRatingForecast()">报告发布</el-menu-item>
-                </el-submenu> -->
+                </el-submenu> 
             </el-menu>
         </el-aside>
         <el-container>
@@ -126,6 +126,9 @@ export default {
         },
         emotionIndex(){
             this.$router.push("/analyst/emotionIndex");
+        },
+        investOutcome(){
+            this.$router.push("/analyst/investOutcome");
         }
     }
 };
@@ -135,4 +138,5 @@ export default {
 .el-aside {
     color: #333;
 }
+
 </style>
